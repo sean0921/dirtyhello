@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION=0.0.1
+VERSION=0.0.1-1
 
 set -eu
 
@@ -16,7 +16,7 @@ printf "\033[1;32m+ Generating code...\033[0m\n"
 printf '#include<stdio.h>\nint main(void){printf("Hello World!\\n");return 0;}'> hello.c
 
 printf "\033[1;32m+ Compiling code...\033[0m\n"
-gcc -o pkgroot/opt/dirtyhello/bin/hello hello.c
+gcc -static -o pkgroot/opt/dirtyhello/bin/hello hello.c
 
 printf "\033[1;32m+ Adding program to distro path...\033[0m\n"
 ln -rsv pkgroot/opt/dirtyhello/bin/hello pkgroot/usr/bin/hello
